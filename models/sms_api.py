@@ -23,6 +23,7 @@ class SmsApi(models.AbstractModel):
         username = self.env['ir.config_parameter'].sudo().get_param('textlocal.username', DEFAULT_USERNAME)
         bad_chars = ["+"]
         numbers = numbers.translate(None, ''.join(bad_chars))
+        print(numbers)
         params = {
             'password': apikey.account_token,
             'text': message,

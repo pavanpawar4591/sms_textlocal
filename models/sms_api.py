@@ -25,7 +25,7 @@ class SmsApi(models.AbstractModel):
             'password': apikey.account_token,
             'text': message,
             'senderid': sender,
-            'number': numbers,
+            'number': numbers[1:],
             'DCS': '0',
             'route': '06',
             'flashsms': '0',

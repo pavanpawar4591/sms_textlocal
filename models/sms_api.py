@@ -6,7 +6,7 @@ from odoo.exceptions import UserError
 from odoo.addons.iap.models import iap
 import requests
 
-DEFAULT_ENDPOINT = 'login.businesslead.co.in'
+DEFAULT_ENDPOINT = 'http://login.businesslead.co.in'
 DEFAULT_SENDER = 'STAREM'
 DEFAULT_USERNAME = 'staruser'
 
@@ -25,7 +25,7 @@ class SmsApi(models.AbstractModel):
             'password': apikey.account_token,
             'text': message,
             'senderid': sender,
-            'numbers': numbers,
+            'number': numbers,
             'DCS': '0',
             'route': '06',
             'flashsms': '0',

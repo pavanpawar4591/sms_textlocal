@@ -21,11 +21,14 @@ class SmsApi(models.AbstractModel):
         apikey = self.env['iap.account'].get('textlocal')
         sender = self.env['ir.config_parameter'].sudo().get_param('textlocal.sender', DEFAULT_SENDER)
         username = self.env['ir.config_parameter'].sudo().get_param('textlocal.username', DEFAULT_USERNAME)
+        bad_chars = ["+"]
+        for i in bad_chars:
+            numbers = numbers.replace(i, '')
         params = {
             'password': apikey.account_token,
             'text': message,
             'senderid': sender,
-            'number': numbers[1:],
+            'number': numbers,
             'DCS': '0',
             'route': '06',
             'flashsms': '0',
